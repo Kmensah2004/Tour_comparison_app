@@ -25,7 +25,7 @@ function Gallery() {
                 setLoading(false);
             })
             .catch(error => {
-                console.error('Error Fetching Tours:', error);
+                console.error('Error Receiving Tours:', error);
                 setLoading(false);
             });
         }, []);
@@ -43,7 +43,7 @@ function Gallery() {
                         {tour.name} - ${tour.price}
                         <br></br>
                         <br></br>
-                        <button onClick={() => toggleExpanded(tour.id)}>{tour.expanded ?'Show Less':'Read More'}</button>
+                        <button onClick={() => toggleExpanded(tour.id)}>{tour.expanded ?'Show Less':'Read More Info'}</button>
                         {tour.expanded && (  
                             <>
                                 <p>{tour.info}</p>
