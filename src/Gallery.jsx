@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 function Gallery() {
     const [tours, setTours] = useState([]); //sets tours as our initial variable
-    const [loading, setLoading] = useState(true); //adds a loading part
-
+    const [loading, setLoading] = useState(true); 
     const notInterested = (id) => {
         setTours((prevTours) => prevTours.filter((tour) => tour.id !== id)) //when selecting this button underneath the tour associated by ID, it will filter out and remove from the  list.
     };
@@ -20,7 +19,7 @@ function Gallery() {
     useEffect(() => {
         setLoading(true); //displays loading message at this time
         fetch('https://www.course-api.com/react-tours-project') //fetch tours from API
-            .then(response => response.json()) //turn API into JSON format
+            .then(response => response.json()) 
             .then(data => {
                 setTours(data.map((tour) => ({ ...tour, expanded: false}))); //add tours to the tours array 
                 setLoading(false);
@@ -45,7 +44,7 @@ function Gallery() {
                         <br></br>
                         <br></br>
                         <button onClick={() => toggleExpanded(tour.id)}>{tour.expanded ?'Show Less':'Read More'}</button>
-                        {tour.expanded && (  //when expanded, will show the tour info and the image
+                        {tour.expanded && (  
                             <>
                                 <p>{tour.info}</p>
                                 <img src={tour.image}></img>
